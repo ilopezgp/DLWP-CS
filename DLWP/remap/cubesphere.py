@@ -75,7 +75,7 @@ class CubeSphereRemap(_BaseRemap):
             self._inverse_map_exists = True
 
     def generate_offline_maps(self, lat, lon, res, map_name=None, inverse_map_name=None, inverse_lat=False,
-                              remove_meshes=True, in_np=1):
+                              remove_meshes=True, in_np=1, output_dir = '.'):
         """
         Generate offline maps for cubed sphere remapping.
 
@@ -105,7 +105,11 @@ class CubeSphereRemap(_BaseRemap):
         else:
             self.inverse_map = None
 
+        self.map = os.path.join(output_dir, self.map)
+        self.inverse_map = os.path.join(output_dir, self.inverse_map)
+
         if self.verbose:
+            print("Self.map is at path: ", self.map)
             print('CubeSphereRemap: generating offline forward map...')
         try:
             cmd = [os.path.join(self.path_to_remapper, 'GenerateRLLMesh'),

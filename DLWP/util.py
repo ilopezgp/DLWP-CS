@@ -17,7 +17,7 @@ from copy import copy
 import numpy as np
 import pandas as pd
 from tensorflow.keras import models as keras_models
-from tensorflow.keras.utils import multi_gpu_model
+# from tensorflow.keras.utils import multi_gpu_model
 
 
 # ==================================================================================================================== #
